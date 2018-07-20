@@ -13,6 +13,9 @@ default['nginx']['source']['modules'] = %w[
   nginx::http_stub_status_module
 ]
 
+# apache
+default['apache2']['enabled_modules'] = %w[expires headers lbmethod_byrequests proxy proxy_balancer proxy_http rewrite ssl]
+
 default['deploy']['timeout'] = 600
 
 # global

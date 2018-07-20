@@ -34,7 +34,8 @@ module Drivers
 
       def setup
         handle_packages
-        enable_modules(%w[expires headers lbmethod_byrequests proxy proxy_balancer proxy_http rewrite ssl])
+        # enable_modules(%w[expires headers lbmethod_byrequests proxy proxy_balancer proxy_http rewrite ssl])
+        enable_modules(node[:apache2][:enabled_modules])
         install_mod_passenger if passenger?
         add_sites_available_enabled
         define_service(:start)
