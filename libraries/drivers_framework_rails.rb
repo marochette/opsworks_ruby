@@ -34,6 +34,8 @@ module Drivers
       private
 
       def database_yml(db_driver)
+        Chef::Log.info("Applicable for Configuration? " + db_driver.applicable_for_configuration?.to_s)
+        Chef::Log.info("Can Migrate? "+ db_driver.can_migrate?.to_s)
         return unless db_driver.applicable_for_configuration? && db_driver.can_migrate?
 
         database = db_driver.out
