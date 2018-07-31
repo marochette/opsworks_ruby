@@ -39,6 +39,12 @@ module Drivers
       end
 
       def applicable_for_configuration?
+        Chef::Log.info("Configuration data source: "+ configuration_data_source.to_s)
+        Chef::Log.info("Node Engine: "+ :node_engine.to_json)
+        Chef::Log.info("App Data Source First is blank? "+ app['data_sources'].first.blank?.to_s)
+        Chef::Log.info("Options RDS is blank? "+ options[:rds].blank?.to_s)
+        Chef::Log.info("App Data Source First ARN "+ app['data_sources'].first['arn'].to_s)
+        Chef::Log.info("Options RDS db instance ARN "+ options[:rds]['rds_db_instance_arn'])
         configuration_data_source == :node_engine || app['data_sources'].first.blank? || options[:rds].blank? ||
           app['data_sources'].first['arn'] == options[:rds]['rds_db_instance_arn']
       end
