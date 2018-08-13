@@ -85,6 +85,13 @@ end
 
 execute 'yum-config-manager --enable epel' if node['platform_family'] == 'rhel'
 
+
+  Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+Chef::Log.info every_enabled_application
+Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+
 every_enabled_application do |application|
   Chef::Log.info "-----------------------------"
 Chef::Log.info "-----------------------------"
