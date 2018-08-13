@@ -11,7 +11,6 @@ Chef::Log.info "-----------------------------"
 Chef::Log.info "-----------------------------"
 Chef::Log.info node.keys
 Chef::Log.info node[:deploy].keys
-Chef::Log.info node
 Chef::Log.info "-----------------------------"
 Chef::Log.info "-----------------------------"
 
@@ -87,6 +86,19 @@ end
 execute 'yum-config-manager --enable epel' if node['platform_family'] == 'rhel'
 
 every_enabled_application do |application|
+  Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+Chef::Log.info application
+Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+  
+  
+    Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+Chef::Log.info every_enabled_rds(self, application)
+Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+  
   databases = []
   every_enabled_rds(self, application) do |rds|
     databases.push(Drivers::Db::Factory.build(self, application, rds: rds))
