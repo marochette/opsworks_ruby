@@ -7,6 +7,12 @@
 
 prepare_recipe
 
+Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+Chef::Log.info node
+Chef::Log.info "-----------------------------"
+Chef::Log.info "-----------------------------"
+
 # Create deployer user
 group node['deployer']['group'] do
   gid 5000
