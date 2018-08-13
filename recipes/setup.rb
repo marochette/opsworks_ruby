@@ -9,6 +9,8 @@ prepare_recipe
 
 Chef::Log.info "-----------------------------"
 Chef::Log.info "-----------------------------"
+Chef::Log.info node.keys
+Chef::Log.info node[:deploy].keys
 Chef::Log.info node
 Chef::Log.info "-----------------------------"
 Chef::Log.info "-----------------------------"
