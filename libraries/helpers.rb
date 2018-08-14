@@ -2,6 +2,13 @@
 
 def applications
   Chef::Log.warn('This recipe uses search. Chef Solo does not support search.') if Chef::Config[:solo]
+  Chef::Log.info "------------------------------------------------------------"
+  Chef::Log.info "------------------------------------------------------------"
+  Chef::Log.info "------------------------------------------------------------"
+  Chef::Log.info search(:aws_opsworks_app)
+  Chef::Log.info "------------------------------------------------------------"
+  Chef::Log.info "------------------------------------------------------------"
+  Chef::Log.info "------------------------------------------------------------"
   search(:aws_opsworks_app)
 end
 
